@@ -1,0 +1,15 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'fastapi-webhook'
+
+receivers:
+  - name: 'fastapi-webhook'
+    webhook_configs:
+      - url: 'http://host.docker.internal:8000/api/v1/alerts/webhook'
+        send_resolved: true

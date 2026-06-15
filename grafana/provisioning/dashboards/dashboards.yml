@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  - name: 'Distributed Logging System Dashboards'
+    orgId: 1
+    folder: 'Observability'
+    type: file
+    disableDeletion: false
+    editable: true
+    updateIntervalSeconds: 10
+    options:
+      path: /etc/grafana/provisioning/dashboards
